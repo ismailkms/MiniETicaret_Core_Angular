@@ -1,0 +1,17 @@
+<h2 mat-dialog-title matBadge="{{rolesComponent.selectedOptions.selected.length}}/{{roles.totalCount}}"
+    matBadgeOverlap="false">{{data.name}} Kullanıcısına Rol Atama</h2>
+<mat-dialog-content>
+    <p>İlgili kullanıcıya aşağıdan rolleri atayabilirsiniz.</p>
+</mat-dialog-content>
+
+<mat-selection-list #rolesComponent>
+    <mat-list-option *ngFor="let role of listRoles" selected="{{role.selected}}">
+        {{role.name}}
+    </mat-list-option>
+</mat-selection-list>
+
+<mat-dialog-actions>
+    <button mat-button (click)="close()">İptal</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="assignRoles(rolesComponent)">Rolleri
+        Ata</button>
+</mat-dialog-actions>

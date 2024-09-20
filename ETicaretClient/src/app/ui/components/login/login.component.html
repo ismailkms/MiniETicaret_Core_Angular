@@ -1,0 +1,31 @@
+<div class="row m-2">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="mb-3">
+            <label for="username" class="form-label">Kullanıcı Adı</label>
+            <input #txtUsernameOrEmail type="text" class="form-control" id="username"
+                placeholder="Kullanıcı Adı & Email">
+            <div class="form-text invalid-feedback">***</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Şifre</label>
+            <input #txtPassword type="password" class="form-control" id="password" placeholder="Şifre">
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <asl-google-signin-button></asl-google-signin-button>
+            </div>
+            <div class="col-md-1">
+                <img src="/assets/facebook.png" style="width: 32px; height: 32px; cursor: pointer;"
+                    (click)="facebookLogin()" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3"
+            (click)="login(txtUsernameOrEmail.value, txtPassword.value)">Giriş
+            Yap</button>
+        <a class="btn btn-secondary mt-3" routerLink="/password-reset" style="margin-left: 5px;">Şifremi Unuttum</a>
+    </div>
+    <div class="col-md-4"></div>
+</div>
